@@ -1,5 +1,6 @@
 const restify = require('restify');
 const errors = require('restify-errors');
+const corsMiddleware = require('restify-cors-middleware');
 
 const port = process.env.PORT || 3000;
 const controller = require('./products.controller');
@@ -8,7 +9,16 @@ const server = restify.createServer({
     name: 'restify headstart'
 });
 
+const cors = corsMiddleware({
+    origins: ['*'],
+    allowHeaders: ['X-App-Version'],
+    exposeHeaders: []
+});
+
 server.use(restify.plugins.bodyParser());
+
+server.pre(cors.preflight);
+server.use(cors.actual);
 
 server.pre((req, res, next) => {
     console.info(`${req.method} - ${req.url}`);
