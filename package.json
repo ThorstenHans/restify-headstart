@@ -1,0 +1,19 @@
+{
+    "name": "restify-headstart",
+    "version": "0.0.1",
+    "description": "short RESTIFY intro",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js"
+    },
+    "keywords": [],
+    "author": "Thorsten Hans <thorsten.hans@gmail.com> (https://thorsten-hans.com/)",
+    "license": "MIT",
+    "dependencies": {
+        "restify": "^6.3.4",
+        "restify-errors": "^5.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.12.1"
+    }
+}
